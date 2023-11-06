@@ -364,7 +364,20 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () async{
-                                await launchUrl(Uri.parse(linksList[index]));
+                                String link = linksList[index].toString() ;
+                                try {
+                                  await launchUrl(Uri.parse(link));
+                                } catch (e) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                        "Invalid Link !",
+                                        textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                                      backgroundColor: Colors.red,
+                                    ),
+                                  );
+                                }
+                                
                               },
                               child: Text(
                                 linksList[index] ,
@@ -505,15 +518,27 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
                     children: [
                       GestureDetector(
                         onTap: (){
-                          generatePdf();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                "Generating PDF..",
-                                textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-                              backgroundColor: Colors.orange,
-                            ),
-                          );
+                          if(headingController.text.isNotEmpty){
+                            generatePdf();
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  "Generating PDF..",
+                                  textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                                backgroundColor: Colors.orange,
+                              ),
+                            );
+                          }
+                          else{
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  "Please Add Heading !",
+                                  textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+                                backgroundColor: Colors.orange,
+                              ),
+                            );
+                          }
                           Navigator.of(context).pop();
                         },
                         child: const Icon(Icons.picture_as_pdf, size: 40,color: Colors.deepPurple,)
@@ -675,7 +700,7 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
           Navigator.of(context).pop();
 
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: const Text('Something Went Wrong'),
+            content: const Text('Please Choose Image !'),
             backgroundColor: primaryColor,
             duration: const Duration(seconds: 1),
           ));

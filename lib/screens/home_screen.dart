@@ -5,7 +5,7 @@ import 'dart:math';
 
 // import 'package:flutter/gestures.dart';
 import 'package:flip_card/flip_card.dart';
-import 'package:flip_card/flip_card_controller.dart';
+// import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -96,13 +96,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
                 content: Text(
-                  "Coming Soon !",
+                  "Premium Features Coming Soon !",
                     textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
                 backgroundColor: Colors.orange,
               ),
             );
           },
-          child: const Icon(Icons.person_pin,size: 45,color: primaryColor,),
+          // child: const Icon(Icons.person_pin,size: 45,color: primaryColor,),
+          child: Container(
+            margin: EdgeInsets.only(left: 10,right: 5,top: 5,bottom: 5),
+            child: CircleAvatar(
+              backgroundColor: primaryColor,
+              radius: 22,
+              child: Image.asset("assets/icons/appicon.png"),
+            ),
+          ),
         ),
         title: const Text(
           "Hi, Guest User",
