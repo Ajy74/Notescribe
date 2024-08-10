@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CircleAvatar(
               backgroundColor: primaryColor,
               radius: 22,
-              child: Image.asset("assets/icons/appicon.png"),
+              child: ClipOval(clipBehavior: Clip.hardEdge,child: Image.asset("assets/icons/appicon.png")),
             ),
           ),
         ),

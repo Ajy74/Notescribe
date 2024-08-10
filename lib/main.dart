@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notescribe/screens/home_screen.dart';
-import 'package:notescribe/screens/note_editor_screen.dart';
 import 'package:notescribe/utils/color.dart';
 
 void main() {

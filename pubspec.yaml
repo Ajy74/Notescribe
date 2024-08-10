@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '3.2.0-210.3.beta'
+  sdk: '>=3.3.0-279.3.beta <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -52,7 +52,7 @@ dependencies:
   vibration: ^1.8.3
   flip_card: ^0.7.0
   flutter_launcher_icons: ^0.13.1
-  printing: ^5.11.0
+  printing: ^5.13.2
 
 dev_dependencies:
   flutter_test:
