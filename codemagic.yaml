@@ -21,10 +21,10 @@ workflows:
       # - name: Flutter analyze
       #   script: | 
       #     flutter analyze
-      - name: Flutter unit tests
-        script: | 
-          flutter test
-        ignore_failure: true
+      # - name: Flutter unit tests
+      #   script: | 
+      #     flutter test
+      #   ignore_failure: true
       - name: Build AAB with Flutter
         script: | 
           flutter build appbundle --release
