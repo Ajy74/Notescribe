@@ -10,8 +10,18 @@ workflows:
       vars:
         PACKAGE_NAME: "com.mourya.notescribe"
         GOOGLE_PLAY_TRACK: production
-      flutter: stable
+      flutter: 3.22.2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+      cancel_previous_builds: true
     scripts:
+      - name: Show Flutter Version
+        script: |
+          flutter --version
       - name: Set up local.properties
         script: | 
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
